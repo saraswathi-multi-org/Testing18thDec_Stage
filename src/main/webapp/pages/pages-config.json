@@ -3,11 +3,19 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
+  "name" : "LV_Charts",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Login",
   "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Page1_1",
   "type" : "PAGE",
   "params" : [ ]
 }, {

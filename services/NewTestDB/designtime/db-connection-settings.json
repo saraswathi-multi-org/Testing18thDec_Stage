@@ -1,0 +1,85 @@
+{
+  "username" : "{WM_CLOUD_MYSQL_USER_NAME}",
+  "password" : "{WM_CLOUD_MYSQL_PASSWORD}",
+  "url" : "jdbc:mysql://{WM_CLOUD_MYSQL_HOST}/NewTestDB?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&createDatabaseIfNotExist=true",
+  "driverClass" : "com.mysql.jdbc.Driver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.MySQLDialect",
+  "serviceId" : "NewTestDB",
+  "packageName" : "com.testing18thdec_stage.newtestdb",
+  "dbType" : "MySQL",
+  "host" : "{WM_CLOUD_MYSQL_HOST}",
+  "dbName" : "NewTestDB",
+  "port" : "",
+  "schemaName" : null,
+  "tableFilter" : [ {
+    "table" : "All Types",
+    "schema" : null
+  }, {
+    "table" : "DATABASEDEFINED_TABLE",
+    "schema" : null
+  }, {
+    "table" : "DBDEFINED_TIMESTAMP",
+    "schema" : null
+  }, {
+    "table" : "Many2One_Child",
+    "schema" : null
+  }, {
+    "table" : "Many2One_Comp_Child",
+    "schema" : null
+  }, {
+    "table" : "Many2One_Comp_Child1",
+    "schema" : null
+  }, {
+    "table" : "Many2One_Comp_Parent",
+    "schema" : null
+  }, {
+    "table" : "Many2One_Comp_Parent1",
+    "schema" : null
+  }, {
+    "table" : "Many2One_Parent",
+    "schema" : null
+  }, {
+    "table" : "One2One_Child",
+    "schema" : null
+  }, {
+    "table" : "One2One_Comp_Child",
+    "schema" : null
+  }, {
+    "table" : "One2One_Comp_Parent",
+    "schema" : null
+  }, {
+    "table" : "One2One_Parent",
+    "schema" : null
+  }, {
+    "table" : "One2One_Virtual_Child",
+    "schema" : null
+  }, {
+    "table" : "One2One_Virtual_Parent",
+    "schema" : null
+  }, {
+    "table" : "One2One_VirtualPK_Child",
+    "schema" : null
+  }, {
+    "table" : "USER TABLE",
+    "schema" : null
+  }, {
+    "table" : "VERIFY_HIDDEN",
+    "schema" : null
+  } ],
+  "schemaFilter" : [ ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "update",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : false,
+    "reason" : null,
+    "message" : null
+  },
+  "readOnly" : false
+}

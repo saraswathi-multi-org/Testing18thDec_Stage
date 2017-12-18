@@ -1,0 +1,380 @@
+{
+  "SV_AllTypesTable" : {
+    "name" : "SV_AllTypesTable",
+    "description" : "All Types Table",
+    "version" : "V2",
+    "queryString" : "select * from \"ALL_TYPES_TABLE\"",
+    "countQueryString" : "select count(*) from (select * from \"ALL_TYPES_TABLE\") wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ "PK ID" ],
+    "response" : {
+      "typeRef" : "com.testing18thdec_stage.newtestdbpostgres.models.query.SvAllTypesTableResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "PK ID",
+        "fieldName" : "pkId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "BYTE COL",
+        "fieldName" : "byteCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "SHORT COL",
+        "fieldName" : "shortCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "INT COL",
+        "fieldName" : "intCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "FLOAT COL",
+        "fieldName" : "floatCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Double",
+          "list" : false
+        }
+      }, {
+        "name" : "DOUBLE COL",
+        "fieldName" : "doubleCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      }, {
+        "name" : "BIGINT COL",
+        "fieldName" : "bigintCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "BIGDEC COL",
+        "fieldName" : "bigdecCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      }, {
+        "name" : "CHAR COL",
+        "fieldName" : "charCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STRING COL",
+        "fieldName" : "stringCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "TEXT COL",
+        "fieldName" : "textCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "CLOB COL",
+        "fieldName" : "clobCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "DATE COL",
+        "fieldName" : "dateCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "TIME COL",
+        "fieldName" : "timeCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Time",
+          "list" : false
+        }
+      }, {
+        "name" : "DATETIME COL",
+        "fieldName" : "datetimeCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "TIMESTAMP COL",
+        "fieldName" : "timestampCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "BOOLEAN COL",
+        "fieldName" : "booleanCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "BLOB COL",
+        "fieldName" : "blobCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "byte[]",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_GetSingleRecord" : {
+    "name" : "SV_GetSingleRecord",
+    "description" : "GetSingleRecord",
+    "version" : "V2",
+    "queryString" : "select * from \"ALL_TYPES_TABLE\" where \"PK ID\"=:PK_ID",
+    "countQueryString" : "select count(*) from (select * from \"ALL_TYPES_TABLE\" where \"PK ID\"=:PK_ID) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "PK_ID",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.testing18thdec_stage.newtestdbpostgres.models.query.SvGetSingleRecordResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "SINGLE",
+      "properties" : [ {
+        "name" : "PK ID",
+        "fieldName" : "pkId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "BYTE COL",
+        "fieldName" : "byteCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "SHORT COL",
+        "fieldName" : "shortCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "INT COL",
+        "fieldName" : "intCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "FLOAT COL",
+        "fieldName" : "floatCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Double",
+          "list" : false
+        }
+      }, {
+        "name" : "DOUBLE COL",
+        "fieldName" : "doubleCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      }, {
+        "name" : "BIGINT COL",
+        "fieldName" : "bigintCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "BIGDEC COL",
+        "fieldName" : "bigdecCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      }, {
+        "name" : "CHAR COL",
+        "fieldName" : "charCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STRING COL",
+        "fieldName" : "stringCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "TEXT COL",
+        "fieldName" : "textCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "CLOB COL",
+        "fieldName" : "clobCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "DATE COL",
+        "fieldName" : "dateCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "TIME COL",
+        "fieldName" : "timeCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Time",
+          "list" : false
+        }
+      }, {
+        "name" : "DATETIME COL",
+        "fieldName" : "datetimeCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "TIMESTAMP COL",
+        "fieldName" : "timestampCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "BOOLEAN COL",
+        "fieldName" : "booleanCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "BLOB COL",
+        "fieldName" : "blobCol",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "byte[]",
+          "list" : false
+        }
+      } ]
+    }
+  }
+}

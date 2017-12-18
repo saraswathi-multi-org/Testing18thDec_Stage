@@ -159,8 +159,8 @@
     <tag-rules>
         <tag name="tt" action="validate"/>
         <tag name="a" action="validate"/>
-        <tag name="b" action="filter"/>
         <tag name="blockquote" action="validate"/>
+        <tag name="b" action="filter"/>
         <tag name="frameset" action="remove"/>
         <tag name="em" action="validate"/>
         <tag name="i" action="validate"/>

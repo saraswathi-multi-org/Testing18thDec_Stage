@@ -1,0 +1,70 @@
+{
+  "username" : "saraswathi",
+  "password" : "7b6a43524a362c086a7f707d0b092c70477c612a43",
+  "url" : "jdbc:oracle:thin:@//54.189.37.152:1521/WMSTUDIO",
+  "driverClass" : "oracle.jdbc.driver.OracleDriver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.OracleDialect",
+  "serviceId" : "WMSTUDIO",
+  "packageName" : "com.testing18thdec_stage.wmstudio",
+  "dbType" : "Oracle",
+  "host" : "54.189.37.152",
+  "dbName" : "WMSTUDIO",
+  "port" : "1521",
+  "schemaName" : "SARASWATHI",
+  "tableFilter" : [ {
+    "table" : "ALLTYPES_NEW_CHANGES",
+    "schema" : "SARASWATHI"
+  }, {
+    "table" : "COUNTRIES",
+    "schema" : "HR"
+  }, {
+    "table" : "MANY2ONE_COMP_CHILD",
+    "schema" : "SARASWATHI"
+  }, {
+    "table" : "MANY2ONE_COMP_CHILD2",
+    "schema" : "SARASWATHI"
+  }, {
+    "table" : "MANY2ONE_COMP_PARENT",
+    "schema" : "SARASWATHI"
+  }, {
+    "table" : "One2One_Child",
+    "schema" : "SARASWATHI"
+  }, {
+    "table" : "One2One_Parent",
+    "schema" : "SARASWATHI"
+  }, {
+    "table" : "One2One_UC_Child",
+    "schema" : "SARASWATHI"
+  }, {
+    "table" : "One2One_UC_Child1",
+    "schema" : "SARASWATHI"
+  }, {
+    "table" : "ONE2ONE_VPK_UC_CHILD_CHEKCST",
+    "schema" : "SARASWATHI"
+  }, {
+    "table" : "ONE2ONE_VPK_UC_PARENT",
+    "schema" : "SARASWATHI"
+  }, {
+    "table" : "SERVER_DEFINED_TABLE",
+    "schema" : "SARASWATHI"
+  }, {
+    "table" : "USER_TABLE",
+    "schema" : "SARASWATHI"
+  } ],
+  "schemaFilter" : [ "SARASWATHI", "HR" ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : false,
+    "reason" : null,
+    "message" : null
+  },
+  "readOnly" : false
+}

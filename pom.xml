@@ -13,6 +13,34 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
+                <directory>services/NewTestDB/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/WMSTUDIO/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/hrdb/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/newtestdbpostgres/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
                 <directory>services/securityService/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
@@ -96,6 +124,10 @@
                         </goals>
                         <configuration>
                             <sources>
+                                <source>services/NewTestDB/src</source>
+                                <source>services/WMSTUDIO/src</source>
+                                <source>services/hrdb/src</source>
+                                <source>services/newtestdbpostgres/src</source>
                                 <source>services/securityService/src</source>
                             </sources>
                         </configuration>
@@ -263,6 +295,35 @@
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4.1208.jre7</version>
+        </dependency>
+        <dependency>
+            <groupId>ojdbc7</groupId>
+            <artifactId>ojdbc7</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.lib.directory}/ojdbc7.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>sqljdbc42</groupId>
+            <artifactId>sqljdbc42</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.lib.directory}/sqljdbc42.jar</systemPath>
         </dependency>
     </dependencies>
     <dependencyManagement>

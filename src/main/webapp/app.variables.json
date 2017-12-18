@@ -15,6 +15,17 @@
     } ],
     "operation" : "toast"
   },
+  "goToPage_LV_Charts" : {
+    "_id" : "wm-goToPage_LV_Charts-wm.NavigationVariable-1513572309012",
+    "name" : "goToPage_LV_Charts",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "LV_Charts",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Main" : {
     "_id" : "wm-wm.NavigationVariable1389180517517",
     "name" : "goToPage_Main",
@@ -22,6 +33,79 @@
     "category" : "wm.NavigationVariable",
     "operation" : "gotoPage",
     "pageName" : "Main"
+  },
+  "goToPage_Page1_1" : {
+    "_id" : "wm-goToPage_Page1-wm.NavigationVariable-1513569978173",
+    "name" : "goToPage_Page1_1",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Page1_1",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "loggedInUser" : {
+    "_id" : "wm-loggedInUser-wm.Variable-1513570432178",
+    "name" : "loggedInUser",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "name" : "",
+      "id" : "",
+      "tenantId" : "",
+      "isAuthenticated" : false,
+      "isSecurityEnabled" : true,
+      "roles" : [ ]
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "loginAction" : {
+    "_id" : "wm-loginAction-wm.LoginVariable-1513570432178",
+    "name" : "loginAction",
+    "owner" : "App",
+    "category" : "wm.LoginVariable",
+    "dataBinding" : [ {
+      "target" : "username",
+      "value" : "bind:Widgets.usernametext.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "password",
+      "value" : "bind:Widgets.passwordtext.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "rememberme",
+      "value" : "bind:Widgets.remembermecheck.datavalue",
+      "type" : "boolean"
+    } ],
+    "dataSet" : {
+      "username" : "",
+      "password" : "",
+      "rememberme" : false
+    },
+    "type" : "string",
+    "saveInPhonegap" : false,
+    "onError" : "loginVariableonError($event, $s)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "useDefaultSuccessHandler" : true
+  },
+  "logoutAction" : {
+    "_id" : "wm-logoutAction-wm.LogoutVariable-1513570432178",
+    "name" : "logoutAction",
+    "owner" : "App",
+    "category" : "wm.LogoutVariable",
+    "type" : "string",
+    "saveInPhonegap" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "redirectTo" : "Login",
+    "useDefaultSuccessHandler" : true
   },
   "supportedLocale" : {
     "_id" : "wm-wm.Variable1402640443182",
