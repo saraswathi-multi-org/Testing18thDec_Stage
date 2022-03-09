@@ -8,7 +8,6 @@ package com.testing18thdec_stage.wmstudio;
 import java.io.Serializable;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,6 +18,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -27,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
  */
 @Entity
 @Table(name = "`One2One_UC_Child`", uniqueConstraints = {
-        @UniqueConstraint(name = "`UK_One2One_UC_Child_Byte_Col`", columnNames = {"`Byte Col`"})})
+            @UniqueConstraint(name = "`UK_One2One_UC_Child_Byte_Col`", columnNames = {"`Byte Col`"})})
 public class One2oneUcChild implements Serializable {
 
     private String emailId;
@@ -77,6 +81,7 @@ public class One2oneUcChild implements Serializable {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`Byte Col`", referencedColumnName = "`Byte PK`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_One2One_UC_Child_TO_OIIGzz`"))
+    @Fetch(FetchMode.JOIN)
     public One2oneChild getOne2oneChild() {
         return this.one2oneChild;
     }
@@ -88,8 +93,8 @@ public class One2oneUcChild implements Serializable {
 
         this.one2oneChild = one2oneChild;
     }
-
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, mappedBy = "one2oneUcChild")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "one2oneUcChild")
+    @Cascade({CascadeType.SAVE_UPDATE, CascadeType.REMOVE})
     public One2oneUcChild1 getOne2oneUcChild1() {
         return this.one2oneUcChild1;
     }
@@ -111,4 +116,3 @@ public class One2oneUcChild implements Serializable {
         return Objects.hash(getEmailId());
     }
 }
-

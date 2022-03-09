@@ -76,4 +76,3 @@ public class UserTable implements Serializable {
         return Objects.hash(getUserId());
     }
 }
-

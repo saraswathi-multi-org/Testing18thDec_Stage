@@ -25,7 +25,7 @@ public class UserTable implements Serializable {
     private Integer userid;
     private String username;
     private String password;
-    private String role;
+    private String role = "'admin'";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -79,4 +79,3 @@ public class UserTable implements Serializable {
         return Objects.hash(getUserid());
     }
 }
-

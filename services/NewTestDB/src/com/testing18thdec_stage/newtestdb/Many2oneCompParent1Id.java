@@ -10,18 +10,10 @@ import java.util.Objects;
 
 public class Many2oneCompParent1Id implements Serializable {
 
-    private String stringPk;
     private Long bigintPk;
-    private String charPk;
+    private String stringPk;
     private Boolean booleanPk;
-
-    public String getStringPk() {
-        return this.stringPk;
-    }
-
-    public void setStringPk(String stringPk) {
-        this.stringPk = stringPk;
-    }
+    private String charPk;
 
     public Long getBigintPk() {
         return this.bigintPk;
@@ -31,12 +23,12 @@ public class Many2oneCompParent1Id implements Serializable {
         this.bigintPk = bigintPk;
     }
 
-    public String getCharPk() {
-        return this.charPk;
+    public String getStringPk() {
+        return this.stringPk;
     }
 
-    public void setCharPk(String charPk) {
-        this.charPk = charPk;
+    public void setStringPk(String stringPk) {
+        this.stringPk = stringPk;
     }
 
     public Boolean getBooleanPk() {
@@ -47,22 +39,30 @@ public class Many2oneCompParent1Id implements Serializable {
         this.booleanPk = booleanPk;
     }
 
+    public String getCharPk() {
+        return this.charPk;
+    }
+
+    public void setCharPk(String charPk) {
+        this.charPk = charPk;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Many2oneCompParent1)) return false;
         final Many2oneCompParent1 many2oneCompParent1 = (Many2oneCompParent1) o;
-        return Objects.equals(getStringPk(), many2oneCompParent1.getStringPk()) &&
-                Objects.equals(getBigintPk(), many2oneCompParent1.getBigintPk()) &&
-                Objects.equals(getCharPk(), many2oneCompParent1.getCharPk()) &&
-                Objects.equals(getBooleanPk(), many2oneCompParent1.getBooleanPk());
+        return Objects.equals(getBigintPk(), many2oneCompParent1.getBigintPk()) &&
+                Objects.equals(getStringPk(), many2oneCompParent1.getStringPk()) &&
+                Objects.equals(getBooleanPk(), many2oneCompParent1.getBooleanPk()) &&
+                Objects.equals(getCharPk(), many2oneCompParent1.getCharPk());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getStringPk(),
-                getBigintPk(),
-                getCharPk(),
-                getBooleanPk());
+        return Objects.hash(getBigintPk(),
+                getStringPk(),
+                getBooleanPk(),
+                getCharPk());
     }
 }

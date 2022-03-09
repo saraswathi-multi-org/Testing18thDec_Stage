@@ -3,6 +3,5 @@
     <import resource="classpath:NewTestDB.spring.xml"/>
     <import resource="classpath:WMSTUDIO.spring.xml"/>
     <import resource="classpath:hrdb.spring.xml"/>
-    <import resource="classpath:newtestdbpostgres.spring.xml"/>
     <import resource="classpath:securityService.spring.xml"/>
 </beans>

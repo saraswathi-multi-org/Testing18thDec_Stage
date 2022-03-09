@@ -1,6 +1,0 @@
-{
-  "id" : "newtestdbpostgres",
-  "type" : "DataService",
-  "packageNames" : [ "com.testing18thdec_stage.newtestdbpostgres" ],
-  "title" : "newtestdbpostgres"
-}

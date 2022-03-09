@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -18,9 +19,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
- 
-import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -33,23 +31,22 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class AllTypes implements Serializable {
 
     private Integer pkId;
-    private Short byteCol;
-    private Short shortCol;
-    private Long longCol;
-    private Double floatCol;
+    private Short byteCol = 12;
+    private Short shortCol = 221;
+    private Long longCol = 1212L;
+    private Double floatCol = 212.2120D;
     private BigDecimal doubleCol;
     private BigDecimal bigdecCol;
-    private Long bigintCol;
-    private String charCol;
-    private String stringCol;
+    private Long bigintCol = 21212L;
+    private String charCol = "'S'";
+    private String stringCol = "'SAMPLE TEST'";
     private String textCol;
     private String clobCol;
     private Date dateCol;
     private Time timeCol;
-     
     private LocalDateTime datetimeCol;
     private Timestamp timestampCol;
-    private Boolean booleanCol;
+    private Boolean booleanCol = true;
     @JsonProperty(access = Access.READ_ONLY)
     private byte[] blobCol;
     private Integer intCol;
@@ -241,4 +238,3 @@ public class AllTypes implements Serializable {
         return Objects.hash(getPkId());
     }
 }
-

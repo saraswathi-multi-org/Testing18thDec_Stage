@@ -19,6 +19,9 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -30,23 +33,13 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 @IdClass(Many2oneCompChild1Id.class)
 public class Many2oneCompChild1 implements Serializable {
 
-    private String stringId;
     private Long bigintId;
+    private String stringId;
     private String charId;
     private Boolean booleanId;
     @JsonProperty(access = Access.READ_ONLY)
     private byte[] blobCol;
     private Many2oneCompParent1 many2oneCompParent1;
-
-    @Id
-    @Column(name = "`STRING ID`", nullable = false, length = 255)
-    public String getStringId() {
-        return this.stringId;
-    }
-
-    public void setStringId(String stringId) {
-        this.stringId = stringId;
-    }
 
     @Id
     @Column(name = "`BIGINT ID`", nullable = false, scale = 0, precision = 19)
@@ -56,6 +49,16 @@ public class Many2oneCompChild1 implements Serializable {
 
     public void setBigintId(Long bigintId) {
         this.bigintId = bigintId;
+    }
+
+    @Id
+    @Column(name = "`STRING ID`", nullable = false, length = 255)
+    public String getStringId() {
+        return this.stringId;
+    }
+
+    public void setStringId(String stringId) {
+        this.stringId = stringId;
     }
 
     @Column(name = "`CHAR ID`", nullable = true, length = 1)
@@ -92,6 +95,7 @@ public class Many2oneCompChild1 implements Serializable {
             @JoinColumn(name = "`CHAR ID`", referencedColumnName = "`CHAR PK`", insertable = false, updatable = false),
             @JoinColumn(name = "`BOOLEAN ID`", referencedColumnName = "`BOOLEAN PK`", insertable = false, updatable = false)},
         foreignKey = @ForeignKey(name = "`FK_Many2One_Comp_Child1_bw74x`"))
+    @Fetch(FetchMode.JOIN)
     public Many2oneCompParent1 getMany2oneCompParent1() {
         return this.many2oneCompParent1;
     }
@@ -112,14 +116,13 @@ public class Many2oneCompChild1 implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Many2oneCompChild1)) return false;
         final Many2oneCompChild1 many2oneCompChild1 = (Many2oneCompChild1) o;
-        return Objects.equals(getStringId(), many2oneCompChild1.getStringId()) &&
-                Objects.equals(getBigintId(), many2oneCompChild1.getBigintId());
+        return Objects.equals(getBigintId(), many2oneCompChild1.getBigintId()) &&
+                Objects.equals(getStringId(), many2oneCompChild1.getStringId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getStringId(),
-                getBigintId());
+        return Objects.hash(getBigintId(),
+                getStringId());
     }
 }
-

@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,6 +17,9 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -32,34 +34,14 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 @IdClass(Many2oneCompParentId.class)
 public class Many2oneCompParent implements Serializable {
 
-    private Double floatId;
-    private String charId;
     private String stringId;
+    private Double floatId;
     private BigDecimal doubleCol;
+    private String charId;
     @JsonProperty(access = Access.READ_ONLY)
     private byte[] blobCol;
     private Boolean booleanCol;
     private List<Many2oneCompChild> many2oneCompChilds;
-
-    @Id
-    @Column(name = "`FLOAT ID`", nullable = false, scale = 4, precision = 8)
-    public Double getFloatId() {
-        return this.floatId;
-    }
-
-    public void setFloatId(Double floatId) {
-        this.floatId = floatId;
-    }
-
-    @Id
-    @Column(name = "`CHAR ID`", nullable = false, length = 1)
-    public String getCharId() {
-        return this.charId;
-    }
-
-    public void setCharId(String charId) {
-        this.charId = charId;
-    }
 
     @Id
     @Column(name = "`STRING ID`", nullable = false, length = 50)
@@ -72,6 +54,16 @@ public class Many2oneCompParent implements Serializable {
     }
 
     @Id
+    @Column(name = "`FLOAT ID`", nullable = false, scale = 4, precision = 8)
+    public Double getFloatId() {
+        return this.floatId;
+    }
+
+    public void setFloatId(Double floatId) {
+        this.floatId = floatId;
+    }
+
+    @Id
     @Column(name = "`DOUBLE COL`", nullable = false, scale = 8, precision = 18)
     public BigDecimal getDoubleCol() {
         return this.doubleCol;
@@ -79,6 +71,16 @@ public class Many2oneCompParent implements Serializable {
 
     public void setDoubleCol(BigDecimal doubleCol) {
         this.doubleCol = doubleCol;
+    }
+
+    @Id
+    @Column(name = "`CHAR ID`", nullable = false, length = 1)
+    public String getCharId() {
+        return this.charId;
+    }
+
+    public void setCharId(String charId) {
+        this.charId = charId;
     }
 
     @Column(name = "`BLOB COL`", nullable = true)
@@ -100,7 +102,8 @@ public class Many2oneCompParent implements Serializable {
     }
 
     @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "many2oneCompParent")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "many2oneCompParent")
+    @Cascade({CascadeType.SAVE_UPDATE, CascadeType.REMOVE})
     public List<Many2oneCompChild> getMany2oneCompChilds() {
         return this.many2oneCompChilds;
     }
@@ -114,18 +117,17 @@ public class Many2oneCompParent implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Many2oneCompParent)) return false;
         final Many2oneCompParent many2oneCompParent = (Many2oneCompParent) o;
-        return Objects.equals(getFloatId(), many2oneCompParent.getFloatId()) &&
-                Objects.equals(getCharId(), many2oneCompParent.getCharId()) &&
-                Objects.equals(getStringId(), many2oneCompParent.getStringId()) &&
-                Objects.equals(getDoubleCol(), many2oneCompParent.getDoubleCol());
+        return Objects.equals(getStringId(), many2oneCompParent.getStringId()) &&
+                Objects.equals(getFloatId(), many2oneCompParent.getFloatId()) &&
+                Objects.equals(getDoubleCol(), many2oneCompParent.getDoubleCol()) &&
+                Objects.equals(getCharId(), many2oneCompParent.getCharId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getFloatId(),
-                getCharId(),
-                getStringId(),
-                getDoubleCol());
+        return Objects.hash(getStringId(),
+                getFloatId(),
+                getDoubleCol(),
+                getCharId());
     }
 }
-

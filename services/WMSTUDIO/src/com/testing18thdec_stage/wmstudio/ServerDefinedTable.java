@@ -146,4 +146,3 @@ public class ServerDefinedTable implements Serializable {
         return Objects.hash(getSeqId());
     }
 }
-

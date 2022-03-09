@@ -88,4 +88,3 @@ public class One2oneVirtualPkChild implements Serializable {
                 getCharCol());
     }
 }
-

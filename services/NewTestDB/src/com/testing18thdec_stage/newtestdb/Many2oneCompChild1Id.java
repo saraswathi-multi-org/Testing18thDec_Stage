@@ -10,16 +10,8 @@ import java.util.Objects;
 
 public class Many2oneCompChild1Id implements Serializable {
 
-    private String stringId;
     private Long bigintId;
-
-    public String getStringId() {
-        return this.stringId;
-    }
-
-    public void setStringId(String stringId) {
-        this.stringId = stringId;
-    }
+    private String stringId;
 
     public Long getBigintId() {
         return this.bigintId;
@@ -29,18 +21,26 @@ public class Many2oneCompChild1Id implements Serializable {
         this.bigintId = bigintId;
     }
 
+    public String getStringId() {
+        return this.stringId;
+    }
+
+    public void setStringId(String stringId) {
+        this.stringId = stringId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Many2oneCompChild1)) return false;
         final Many2oneCompChild1 many2oneCompChild1 = (Many2oneCompChild1) o;
-        return Objects.equals(getStringId(), many2oneCompChild1.getStringId()) &&
-                Objects.equals(getBigintId(), many2oneCompChild1.getBigintId());
+        return Objects.equals(getBigintId(), many2oneCompChild1.getBigintId()) &&
+                Objects.equals(getStringId(), many2oneCompChild1.getStringId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getStringId(),
-                getBigintId());
+        return Objects.hash(getBigintId(),
+                getStringId());
     }
 }

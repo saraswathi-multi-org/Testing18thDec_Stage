@@ -10,18 +10,10 @@ import java.util.Objects;
 
 public class Many2oneCompParentId implements Serializable {
 
-    private Byte byteId;
     private String stringId;
-    private String charId;
+    private Byte byteId;
     private Double floatId;
-
-    public Byte getByteId() {
-        return this.byteId;
-    }
-
-    public void setByteId(Byte byteId) {
-        this.byteId = byteId;
-    }
+    private String charId;
 
     public String getStringId() {
         return this.stringId;
@@ -31,12 +23,12 @@ public class Many2oneCompParentId implements Serializable {
         this.stringId = stringId;
     }
 
-    public String getCharId() {
-        return this.charId;
+    public Byte getByteId() {
+        return this.byteId;
     }
 
-    public void setCharId(String charId) {
-        this.charId = charId;
+    public void setByteId(Byte byteId) {
+        this.byteId = byteId;
     }
 
     public Double getFloatId() {
@@ -47,22 +39,30 @@ public class Many2oneCompParentId implements Serializable {
         this.floatId = floatId;
     }
 
+    public String getCharId() {
+        return this.charId;
+    }
+
+    public void setCharId(String charId) {
+        this.charId = charId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Many2oneCompParent)) return false;
         final Many2oneCompParent many2oneCompParent = (Many2oneCompParent) o;
-        return Objects.equals(getByteId(), many2oneCompParent.getByteId()) &&
-                Objects.equals(getStringId(), many2oneCompParent.getStringId()) &&
-                Objects.equals(getCharId(), many2oneCompParent.getCharId()) &&
-                Objects.equals(getFloatId(), many2oneCompParent.getFloatId());
+        return Objects.equals(getStringId(), many2oneCompParent.getStringId()) &&
+                Objects.equals(getByteId(), many2oneCompParent.getByteId()) &&
+                Objects.equals(getFloatId(), many2oneCompParent.getFloatId()) &&
+                Objects.equals(getCharId(), many2oneCompParent.getCharId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getByteId(),
-                getStringId(),
-                getCharId(),
-                getFloatId());
+        return Objects.hash(getStringId(),
+                getByteId(),
+                getFloatId(),
+                getCharId());
     }
 }

@@ -89,4 +89,3 @@ public class One2oneVirtualChild implements Serializable {
                 getDateCol());
     }
 }
-

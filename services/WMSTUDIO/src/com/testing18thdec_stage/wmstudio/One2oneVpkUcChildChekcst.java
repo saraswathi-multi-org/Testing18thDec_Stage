@@ -23,10 +23,10 @@ import javax.persistence.Table;
 @IdClass(One2oneVpkUcChildChekcstId.class)
 public class One2oneVpkUcChildChekcst implements Serializable {
 
-    private String characterCol;
+    private String characterCol = "'S'";
     private Double floatCol;
     private BigInteger smallintCol;
-    private String stringCol;
+    private String stringCol = "'SAMPLE2'";
     private BigInteger integerCol;
 
     @Id
@@ -102,4 +102,3 @@ public class One2oneVpkUcChildChekcst implements Serializable {
                 getIntegerCol());
     }
 }
-

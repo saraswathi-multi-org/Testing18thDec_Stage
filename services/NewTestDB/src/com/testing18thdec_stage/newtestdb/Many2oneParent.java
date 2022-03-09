@@ -9,13 +9,15 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -28,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class Many2oneParent implements Serializable {
 
     private String stringId;
-    private String charCol;
+    private String charCol = "'R'";
     private Boolean booleanCol;
     private List<Many2oneChild> many2oneChilds;
 
@@ -61,7 +63,8 @@ public class Many2oneParent implements Serializable {
     }
 
     @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "many2oneParent")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "many2oneParent")
+    @Cascade({CascadeType.SAVE_UPDATE, CascadeType.REMOVE})
     public List<Many2oneChild> getMany2oneChilds() {
         return this.many2oneChilds;
     }
@@ -83,4 +86,3 @@ public class Many2oneParent implements Serializable {
         return Objects.hash(getStringId());
     }
 }
-

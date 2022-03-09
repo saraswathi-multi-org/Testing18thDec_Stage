@@ -149,7 +149,6 @@
                                 <source>services/NewTestDB/src</source>
                                 <source>services/WMSTUDIO/src</source>
                                 <source>services/hrdb/src</source>
-                                <source>services/newtestdbpostgres/src</source>
                                 <source>services/securityService/src</source>
                             </sources>
                         </configuration>

@@ -10,7 +10,6 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,6 +17,9 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -30,22 +32,12 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @IdClass(Many2oneCompParent1Id.class)
 public class Many2oneCompParent1 implements Serializable {
 
-    private String stringPk;
     private Long bigintPk;
-    private String charPk;
+    private String stringPk;
     private Boolean booleanPk;
+    private String charPk;
     private Date dateCol;
     private List<Many2oneCompChild1> many2oneCompChild1s;
-
-    @Id
-    @Column(name = "`STRING PK`", nullable = false, length = 255)
-    public String getStringPk() {
-        return this.stringPk;
-    }
-
-    public void setStringPk(String stringPk) {
-        this.stringPk = stringPk;
-    }
 
     @Id
     @Column(name = "`BIGINT PK`", nullable = false, scale = 0, precision = 19)
@@ -58,13 +50,13 @@ public class Many2oneCompParent1 implements Serializable {
     }
 
     @Id
-    @Column(name = "`CHAR PK`", nullable = false, length = 1)
-    public String getCharPk() {
-        return this.charPk;
+    @Column(name = "`STRING PK`", nullable = false, length = 255)
+    public String getStringPk() {
+        return this.stringPk;
     }
 
-    public void setCharPk(String charPk) {
-        this.charPk = charPk;
+    public void setStringPk(String stringPk) {
+        this.stringPk = stringPk;
     }
 
     @Id
@@ -77,6 +69,16 @@ public class Many2oneCompParent1 implements Serializable {
         this.booleanPk = booleanPk;
     }
 
+    @Id
+    @Column(name = "`CHAR PK`", nullable = false, length = 1)
+    public String getCharPk() {
+        return this.charPk;
+    }
+
+    public void setCharPk(String charPk) {
+        this.charPk = charPk;
+    }
+
     @Column(name = "`DATE COL`", nullable = true)
     public Date getDateCol() {
         return this.dateCol;
@@ -87,7 +89,8 @@ public class Many2oneCompParent1 implements Serializable {
     }
 
     @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "many2oneCompParent1")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "many2oneCompParent1")
+    @Cascade({CascadeType.SAVE_UPDATE, CascadeType.REMOVE})
     public List<Many2oneCompChild1> getMany2oneCompChild1s() {
         return this.many2oneCompChild1s;
     }
@@ -101,18 +104,17 @@ public class Many2oneCompParent1 implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Many2oneCompParent1)) return false;
         final Many2oneCompParent1 many2oneCompParent1 = (Many2oneCompParent1) o;
-        return Objects.equals(getStringPk(), many2oneCompParent1.getStringPk()) &&
-                Objects.equals(getBigintPk(), many2oneCompParent1.getBigintPk()) &&
-                Objects.equals(getCharPk(), many2oneCompParent1.getCharPk()) &&
-                Objects.equals(getBooleanPk(), many2oneCompParent1.getBooleanPk());
+        return Objects.equals(getBigintPk(), many2oneCompParent1.getBigintPk()) &&
+                Objects.equals(getStringPk(), many2oneCompParent1.getStringPk()) &&
+                Objects.equals(getBooleanPk(), many2oneCompParent1.getBooleanPk()) &&
+                Objects.equals(getCharPk(), many2oneCompParent1.getCharPk());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getStringPk(),
-                getBigintPk(),
-                getCharPk(),
-                getBooleanPk());
+        return Objects.hash(getBigintPk(),
+                getStringPk(),
+                getBooleanPk(),
+                getCharPk());
     }
 }
-

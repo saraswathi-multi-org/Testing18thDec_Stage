@@ -10,7 +10,6 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,6 +17,9 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -30,23 +32,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @IdClass(Many2oneCompParentId.class)
 public class Many2oneCompParent implements Serializable {
 
-    private Byte byteId;
     private String stringId;
-    private String charId;
+    private Byte byteId;
     private Double floatId;
+    private String charId;
     private String booleanCol;
     private BigInteger bigintCol;
     private List<Many2oneCompChild> many2oneCompChilds;
-
-    @Id
-    @Column(name = "`BYTE ID`", nullable = false, scale = 0, precision = 2)
-    public Byte getByteId() {
-        return this.byteId;
-    }
-
-    public void setByteId(Byte byteId) {
-        this.byteId = byteId;
-    }
 
     @Id
     @Column(name = "`STRING ID`", nullable = false, length = 20)
@@ -59,13 +51,13 @@ public class Many2oneCompParent implements Serializable {
     }
 
     @Id
-    @Column(name = "`CHAR ID`", nullable = false, length = 1)
-    public String getCharId() {
-        return this.charId;
+    @Column(name = "`BYTE ID`", nullable = false, scale = 0, precision = 2)
+    public Byte getByteId() {
+        return this.byteId;
     }
 
-    public void setCharId(String charId) {
-        this.charId = charId;
+    public void setByteId(Byte byteId) {
+        this.byteId = byteId;
     }
 
     @Id
@@ -76,6 +68,16 @@ public class Many2oneCompParent implements Serializable {
 
     public void setFloatId(Double floatId) {
         this.floatId = floatId;
+    }
+
+    @Id
+    @Column(name = "`CHAR ID`", nullable = false, length = 1)
+    public String getCharId() {
+        return this.charId;
+    }
+
+    public void setCharId(String charId) {
+        this.charId = charId;
     }
 
     @Column(name = "`BOOLEAN COL`", nullable = true, length = 1)
@@ -97,7 +99,8 @@ public class Many2oneCompParent implements Serializable {
     }
 
     @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "many2oneCompParent")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "many2oneCompParent")
+    @Cascade({CascadeType.SAVE_UPDATE, CascadeType.REMOVE})
     public List<Many2oneCompChild> getMany2oneCompChilds() {
         return this.many2oneCompChilds;
     }
@@ -111,18 +114,17 @@ public class Many2oneCompParent implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Many2oneCompParent)) return false;
         final Many2oneCompParent many2oneCompParent = (Many2oneCompParent) o;
-        return Objects.equals(getByteId(), many2oneCompParent.getByteId()) &&
-                Objects.equals(getStringId(), many2oneCompParent.getStringId()) &&
-                Objects.equals(getCharId(), many2oneCompParent.getCharId()) &&
-                Objects.equals(getFloatId(), many2oneCompParent.getFloatId());
+        return Objects.equals(getStringId(), many2oneCompParent.getStringId()) &&
+                Objects.equals(getByteId(), many2oneCompParent.getByteId()) &&
+                Objects.equals(getFloatId(), many2oneCompParent.getFloatId()) &&
+                Objects.equals(getCharId(), many2oneCompParent.getCharId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getByteId(),
-                getStringId(),
-                getCharId(),
-                getFloatId());
+        return Objects.hash(getStringId(),
+                getByteId(),
+                getFloatId(),
+                getCharId());
     }
 }
-

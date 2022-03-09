@@ -9,15 +9,13 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
- 
-import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -30,18 +28,17 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class AlltypesNewChanges implements Serializable {
 
     private Integer intId;
-    private Byte byteCol;
-    private Short shortCol;
-    private Integer intCol;
-    private Double floatCol;
+    private Byte byteCol = 11;
+    private Short shortCol = 121;
+    private Integer intCol = 2121;
+    private Double floatCol = 1212.1212D;
     private BigDecimal doubleCol;
     private BigInteger bigintCol;
     private BigDecimal bigdecCol;
-    private String charCol;
-    private String stringCol;
-    private String booleanCol;
-    private String booleanColYN;
-     
+    private String charCol = "'S'";
+    private String stringCol = "'SAMPLE TEST'";
+    private String booleanCol = "'1'";
+    private String booleanColYN = "'Y'";
     private LocalDateTime datetimeCol;
     private Timestamp timestampCol;
     @JsonProperty(access = Access.READ_ONLY)
@@ -217,4 +214,3 @@ public class AlltypesNewChanges implements Serializable {
         return Objects.hash(getIntId());
     }
 }
-

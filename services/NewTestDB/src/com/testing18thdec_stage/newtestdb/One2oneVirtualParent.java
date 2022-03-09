@@ -67,4 +67,3 @@ public class One2oneVirtualParent implements Serializable {
         return Objects.hash(getCharPkId());
     }
 }
-
