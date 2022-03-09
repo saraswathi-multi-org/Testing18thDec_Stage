@@ -19,8 +19,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
-import org.joda.time.LocalDateTime;
+ 
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -46,7 +46,7 @@ public class AllTypes implements Serializable {
     private String clobCol;
     private Date dateCol;
     private Time timeCol;
-    @Type(type = "DateTime")
+     
     private LocalDateTime datetimeCol;
     private Timestamp timestampCol;
     private Boolean booleanCol;

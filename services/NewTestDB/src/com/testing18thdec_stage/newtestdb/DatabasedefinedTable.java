@@ -14,8 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
-import org.joda.time.LocalDateTime;
+ 
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -30,7 +30,7 @@ public class DatabasedefinedTable implements Serializable {
 
     private Integer a;
     private Integer b;
-    @Type(type = "DateTime")
+     
     private LocalDateTime expires;
     @JsonProperty(access = Access.READ_ONLY)
     private byte[] x;

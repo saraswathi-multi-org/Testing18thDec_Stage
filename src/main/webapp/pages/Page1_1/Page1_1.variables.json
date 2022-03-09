@@ -265,7 +265,11 @@
     "properties" : [ ],
     "relatedTables" : [ ],
     "filterFields" : { },
-    "package" : "com.testing18thdec_stage.newtestdbpostgres.AllTypesTable"
+    "package" : "com.testing18thdec_stage.newtestdbpostgres.AllTypesTable",
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ ]
+    }
   },
   "NewtestdbpostgresAllTypesTableData1" : {
     "_id" : "wm-NewtestdbpostgresAllTypesTableData1-wm.LiveVariable-1513573433839",
@@ -532,7 +536,11 @@
     "tableType" : "TABLE",
     "properties" : [ ],
     "relatedTables" : [ ],
-    "package" : "com.testing18thdec_stage.newtestdbpostgres.AllTypesTable"
+    "package" : "com.testing18thdec_stage.newtestdbpostgres.AllTypesTable",
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ ]
+    }
   },
   "NewtestdbpostgresDatetimeTabaleReverseData" : {
     "_id" : "wm-NewtestdbpostgresDatetimeTabaleReverseData-wm.LiveVariable-1513576337127",
@@ -607,6 +615,10 @@
     "tableType" : "TABLE",
     "properties" : [ ],
     "relatedTables" : [ ],
-    "package" : "com.testing18thdec_stage.newtestdbpostgres.DatetimeTabaleReverse"
+    "package" : "com.testing18thdec_stage.newtestdbpostgres.DatetimeTabaleReverse",
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ ]
+    }
   }
 }

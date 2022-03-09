@@ -1,0 +1,6 @@
+{
+  "id" : "NewTestDB",
+  "type" : "DataService",
+  "packageNames" : [ "com.testing18thdec_stage.newtestdb" ],
+  "title" : "NewTestDB"
+}

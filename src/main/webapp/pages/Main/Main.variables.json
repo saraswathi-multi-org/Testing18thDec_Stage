@@ -154,6 +154,10 @@
     "tableType" : "TABLE",
     "properties" : [ ],
     "relatedTables" : [ ],
-    "package" : "com.testing18thdec_stage.hrdb.Department"
+    "package" : "com.testing18thdec_stage.hrdb.Department",
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ ]
+    }
   }
 }

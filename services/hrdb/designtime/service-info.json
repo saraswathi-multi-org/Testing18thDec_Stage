@@ -1,0 +1,6 @@
+{
+  "id" : "hrdb",
+  "type" : "DataService",
+  "packageNames" : [ "com.testing18thdec_stage.hrdb" ],
+  "title" : "hrdb"
+}

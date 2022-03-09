@@ -8,13 +8,13 @@ package com.testing18thdec_stage.wmstudio;
 import java.io.Serializable;
 import java.util.Objects;
 
-import org.hibernate.annotations.Type;
-import org.joda.time.LocalDateTime;
+ 
+import java.time.LocalDateTime;
 
 public class One2oneVpkUcParentId implements Serializable {
 
     private String stringCol;
-    @Type(type = "DateTime")
+     
     private LocalDateTime dateCol;
     private String charCol;
     private String clobCol;

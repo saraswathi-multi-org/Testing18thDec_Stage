@@ -1,4 +1,4 @@
-<wm-page data-ng-controller="Page1_1PageController" pagetitle="Page 1" name="page1">
+<wm-page pagetitle="Page 1" name="page1">
     <wm-header content="header" name="header1"></wm-header>
     <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content1">
@@ -6,7 +6,7 @@
             <wm-tabs name="tabs1">
                 <wm-tabpane name="tabpane1" title="All Types">
                     <wm-livetable name="AllTypesTableLiveTable1">
-                        <wm-table gridfirstrowselect="true" editmode="form" name="AllTypesTableTable1" title="All_types_table List" dataset="bind:Variables.NewtestdbpostgresAllTypesTableData.dataSet" navigation="Basic" exportformat="EXCEL,CSV">
+                        <wm-table gridfirstrowselect="true" editmode="form" name="AllTypesTableTable1" title="All_types_table List" dataset="bind:Variables.NewtestdbpostgresAllTypesTableData.dataSet" navigation="Basic" exportformat="EXCEL,CSV" gridclass="table-bordered table-striped table-hover">
                             <wm-table-column binding="rowOperations" caption="Actions" width="120px" type="custom" readonly="true" sortable="false" searchable="false" show="true" rowactionsposition="0"></wm-table-column>
                             <wm-table-column binding="pkId" caption="Pk Id" primary-key="true" edit-widget-type="number" type="integer" generator="sequence" readonly="true" show="true"></wm-table-column>
                             <wm-table-column binding="byteCol" caption="Byte Col" edit-widget-type="number" type="byte" generator="assigned" show="true" readonly="false"></wm-table-column>
@@ -25,104 +25,91 @@
                             <wm-table-column binding="datetimeCol" caption="Datetime Col" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column>
                             <wm-table-column binding="timestampCol" caption="Timestamp Col" edit-widget-type="timestamp" type="timestamp" generator="assigned" show="true" readonly="false"></wm-table-column>
                             <wm-table-column binding="booleanCol" caption="Boolean Col" edit-widget-type="checkbox" type="boolean" generator="assigned" show="true" readonly="false"></wm-table-column>
-                            <wm-table-column binding="blobCol" caption="Blob Col" edit-widget-type="upload" type="blob" generator="assigned" searchable="false" show="true" readonly="false"><a ng-if="columnValue != null" class="col-md-9" target="_blank" data-ng-href="{{columnValue}}"><i class="wm-icon wm-icon24 wi wi-file"></i></a></wm-table-column>
-                            <wm-table-action key="addNewRow" display-name="New" show="true"
-                                class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false"></wm-table-action>
-                            <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
-                            <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
+                            <wm-table-column binding="blobCol" caption="Blob Col" edit-widget-type="upload" type="blob" generator="assigned" searchable="false" show="true" readonly="false">
+                              <a class="col-md-9" target="_blank" [attr.data-ng-href]="row.getProperty('blobCol')" show="bind:row.getProperty('blobCol') != null"><i class="wm-icon wm-icon24 wi wi-file"></i></a>
+                            </wm-table-column>
+                            <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false"></wm-table-action>
+                            <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow($event)" disabled="false"></wm-table-row-action>
+                            <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow($event)" disabled="false"></wm-table-row-action>
                         </wm-table>
                         <wm-liveform errormessage="" title="All_types_table Info" formlayout="inline" iconclass="wi wi-edit" name="AllTypesTableLiveForm1" dataset="bind:Variables.NewtestdbpostgresAllTypesTableData.dataSet" captionalign="left" captionposition="top">
                             <wm-layoutgrid columns="2" name="layoutgrid4">
-                                <wm-gridrow name="gridrow18">
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn38">
-                                        <wm-form-field name="byteCol" displayname="Byte Col" show="true" primary-key="false" generator="assigned" key="byteCol" type="byte" readonly="false" required="false" step="0" widget="number" defaultvalue="11" inputtype="number"
-                                            placeholder="Enter value"></wm-form-field>
-                                    </wm-gridcolumn>
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn39">
-                                        <wm-form-field name="shortCol" displayname="Short Col" show="true" primary-key="false" generator="assigned" key="shortCol" type="short" readonly="false" required="false" step="0" widget="number" defaultvalue="121" inputtype="number"
-                                            placeholder="Enter value"></wm-form-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow19">
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn40">
-                                        <wm-form-field name="intCol" displayname="Int Col" show="true" primary-key="false" generator="assigned" key="intCol" type="integer" readonly="false" required="false" step="0" widget="number" defaultvalue="1211" inputtype="number"
-                                            placeholder="Enter value"></wm-form-field>
-                                    </wm-gridcolumn>
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn41">
-                                        <wm-form-field name="floatCol" displayname="Float Col" show="true" primary-key="false" generator="assigned" key="floatCol" type="float" readonly="false" required="false" step="0.0001" widget="number" defaultvalue="1222.1221"
-                                            inputtype="number" placeholder="Enter value"></wm-form-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow20">
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn42">
-                                        <wm-form-field name="doubleCol" displayname="Double Col" show="true" primary-key="false" generator="assigned" key="doubleCol" type="double" readonly="false" required="false" step="1e-8" widget="number" defaultvalue="1112.112"
-                                            inputtype="number" placeholder="Enter value"></wm-form-field>
-                                    </wm-gridcolumn>
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn43">
-                                        <wm-form-field name="bigintCol" displayname="Bigint Col" show="true" primary-key="false" generator="assigned" key="bigintCol" type="big_integer" readonly="false" required="false" step="0" widget="number" defaultvalue="12121212"
-                                            inputtype="number" placeholder="Enter value"></wm-form-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow21">
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn44">
-                                        <wm-form-field name="bigdecCol" displayname="Bigdec Col" show="true" primary-key="false" generator="assigned" key="bigdecCol" type="big_decimal" readonly="false" required="false" step="1e-15" widget="number" defaultvalue="122121.122121"
-                                            inputtype="number" placeholder="Enter value"></wm-form-field>
-                                    </wm-gridcolumn>
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn45">
-                                        <wm-form-field name="charCol" displayname="Char Col" show="true" primary-key="false" generator="assigned" key="charCol" type="character" readonly="false" required="false" widget="text" defaultvalue="S" maxchars="1"
-                                            inputtype="text" placeholder="Enter value"></wm-form-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow22">
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn46">
-                                        <wm-form-field name="stringCol" displayname="String Col" show="true" primary-key="false" generator="assigned" key="stringCol" type="string" readonly="false" required="false" widget="text" defaultvalue="sample string column"
-                                            maxchars="20" inputtype="text" placeholder="Enter value"></wm-form-field>
-                                    </wm-gridcolumn>
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn47">
-                                        <wm-form-field name="textCol" displayname="Text Col" show="true" primary-key="false" generator="assigned" key="textCol" type="text" readonly="false" required="false" widget="text" maxchars="2255" inputtype="text" placeholder="Enter value"></wm-form-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow23">
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn48">
-                                        <wm-form-field name="clobCol" displayname="Clob Col" show="true" primary-key="false" generator="assigned" key="clobCol" type="clob" readonly="false" required="false" widget="text" maxchars="8255" inputtype="text" placeholder="Enter value"></wm-form-field>
-                                    </wm-gridcolumn>
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn49">
-                                        <wm-form-field name="dateCol" displayname="Date Col" show="true" primary-key="false" generator="assigned" key="dateCol" type="date" readonly="false" required="false" widget="date" defaultvalue="2017-12-18" placeholder="Select date"
-                                            outputformat="yyyy-MM-dd"></wm-form-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow24">
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn50">
-                                        <wm-form-field name="timeCol" displayname="Time Col" show="true" primary-key="false" generator="assigned" key="timeCol" type="time" readonly="false" required="false" widget="time" defaultvalue="11:18:38" placeholder="Select time"
-                                            outputformat="HH:mm:ss"></wm-form-field>
-                                    </wm-gridcolumn>
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn51">
-                                        <wm-form-field name="datetimeCol" displayname="Datetime Col" show="true" primary-key="false" generator="assigned" key="datetimeCol" type="datetime" readonly="false" required="false" widget="datetime" defaultvalue="2017-12-18T11:19:02"
-                                            placeholder="Select date time" outputformat="yyyy-MM-ddTHH:mm:ss"></wm-form-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow25">
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn52">
-                                        <wm-form-field name="timestampCol" displayname="Timestamp Col" show="true" primary-key="false" generator="assigned" key="timestampCol" type="timestamp" readonly="false" required="false" widget="timestamp" defaultvalue="2017-12-18T11:19:09"
-                                            placeholder="Select date time" outputformat="timestamp"></wm-form-field>
-                                    </wm-gridcolumn>
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn53">
-                                        <wm-form-field name="booleanCol" displayname="Boolean Col" show="true" primary-key="false" generator="assigned" key="booleanCol" type="boolean" readonly="false" required="false" widget="checkbox" defaultvalue="false"
-                                            placeholder=""></wm-form-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow26">
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn54">
-                                        <wm-form-field name="blobCol" displayname="Blob Col" show="true" primary-key="false" generator="assigned" key="blobCol" type="blob" readonly="false" required="false" widget="upload" maxchars="0"></wm-form-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
+                              <wm-gridrow name="gridrow18">
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn38">
+                              <wm-form-field name="byteCol" displayname="Byte Col" show="true" primary-key="false" generator="assigned" key="byteCol" type="byte" readonly="false" required="false" step="0" widget="number" defaultvalue="11" inputtype="number" placeholder="Enter value"></wm-form-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn39">
+                              <wm-form-field name="shortCol" displayname="Short Col" show="true" primary-key="false" generator="assigned" key="shortCol" type="short" readonly="false" required="false" step="0" widget="number" defaultvalue="121" inputtype="number" placeholder="Enter value"></wm-form-field>
+                              </wm-gridcolumn>
+                              </wm-gridrow>
+                              <wm-gridrow name="gridrow19">
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn40">
+                              <wm-form-field name="intCol" displayname="Int Col" show="true" primary-key="false" generator="assigned" key="intCol" type="integer" readonly="false" required="false" step="0" widget="number" defaultvalue="1211" inputtype="number" placeholder="Enter value"></wm-form-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn41">
+                              <wm-form-field name="floatCol" displayname="Float Col" show="true" primary-key="false" generator="assigned" key="floatCol" type="float" readonly="false" required="false" step="0.0001" widget="number" defaultvalue="1222.1221" inputtype="number" placeholder="Enter value"></wm-form-field>
+                              </wm-gridcolumn>
+                              </wm-gridrow>
+                              <wm-gridrow name="gridrow20">
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn42">
+                              <wm-form-field name="doubleCol" displayname="Double Col" show="true" primary-key="false" generator="assigned" key="doubleCol" type="double" readonly="false" required="false" step="1e-8" widget="number" defaultvalue="1112.112" inputtype="number" placeholder="Enter value"></wm-form-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn43">
+                              <wm-form-field name="bigintCol" displayname="Bigint Col" show="true" primary-key="false" generator="assigned" key="bigintCol" type="big_integer" readonly="false" required="false" step="0" widget="number" defaultvalue="12121212" inputtype="number" placeholder="Enter value"></wm-form-field>
+                              </wm-gridcolumn>
+                              </wm-gridrow>
+                              <wm-gridrow name="gridrow21">
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn44">
+                              <wm-form-field name="bigdecCol" displayname="Bigdec Col" show="true" primary-key="false" generator="assigned" key="bigdecCol" type="big_decimal" readonly="false" required="false" step="1e-15" widget="number" defaultvalue="122121.122121" inputtype="number" placeholder="Enter value"></wm-form-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn45">
+                              <wm-form-field name="charCol" displayname="Char Col" show="true" primary-key="false" generator="assigned" key="charCol" type="character" readonly="false" required="false" widget="text" defaultvalue="S" maxchars="1" inputtype="text" placeholder="Enter value"></wm-form-field>
+                              </wm-gridcolumn>
+                              </wm-gridrow>
+                              <wm-gridrow name="gridrow22">
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn46">
+                              <wm-form-field name="stringCol" displayname="String Col" show="true" primary-key="false" generator="assigned" key="stringCol" type="string" readonly="false" required="false" widget="text" defaultvalue="sample string column" maxchars="20" inputtype="text" placeholder="Enter value"></wm-form-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn47">
+                              <wm-form-field name="textCol" displayname="Text Col" show="true" primary-key="false" generator="assigned" key="textCol" type="text" readonly="false" required="false" widget="text" maxchars="2255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                              </wm-gridcolumn>
+                              </wm-gridrow>
+                              <wm-gridrow name="gridrow23">
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn48">
+                              <wm-form-field name="clobCol" displayname="Clob Col" show="true" primary-key="false" generator="assigned" key="clobCol" type="clob" readonly="false" required="false" widget="text" maxchars="8255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn49">
+                              <wm-form-field name="dateCol" displayname="Date Col" show="true" primary-key="false" generator="assigned" key="dateCol" type="date" readonly="false" required="false" widget="date" defaultvalue="2017-12-18" placeholder="Select date" outputformat="yyyy-MM-dd"></wm-form-field>
+                              </wm-gridcolumn>
+                              </wm-gridrow>
+                              <wm-gridrow name="gridrow24">
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn50">
+                              <wm-form-field name="timeCol" displayname="Time Col" show="true" primary-key="false" generator="assigned" key="timeCol" type="time" readonly="false" required="false" widget="time" defaultvalue="11:18:38" placeholder="Select time" outputformat="HH:mm:ss"></wm-form-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn51">
+                              <wm-form-field name="datetimeCol" displayname="Datetime Col" show="true" primary-key="false" generator="assigned" key="datetimeCol" type="datetime" readonly="false" required="false" widget="datetime" defaultvalue="2017-12-18T11:19:02" placeholder="Select date time" outputformat="yyyy-MM-ddTHH:mm:ss"></wm-form-field>
+                              </wm-gridcolumn>
+                              </wm-gridrow>
+                              <wm-gridrow name="gridrow25">
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn52">
+                              <wm-form-field name="timestampCol" displayname="Timestamp Col" show="true" primary-key="false" generator="assigned" key="timestampCol" type="timestamp" readonly="false" required="false" widget="timestamp" defaultvalue="2017-12-18T11:19:09" placeholder="Select date time" outputformat="timestamp"></wm-form-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn53">
+                              <wm-form-field name="booleanCol" displayname="Boolean Col" show="true" primary-key="false" generator="assigned" key="booleanCol" type="boolean" readonly="false" required="false" widget="checkbox" defaultvalue="false" placeholder=""></wm-form-field>
+                              </wm-gridcolumn>
+                              </wm-gridrow>
+                              <wm-gridrow name="gridrow26">
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn54">
+                              <wm-form-field name="blobCol" displayname="Blob Col" show="true" primary-key="false" generator="assigned" key="blobCol" type="blob" readonly="false" required="false" widget="upload" maxchars="0"></wm-form-field>
+                              </wm-gridcolumn>
+                              </wm-gridrow>
                             </wm-layoutgrid>
                             <wm-form-field name="pkId" displayname="Pk Id" show="false" primary-key="true" generator="sequence" key="pkId" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
-                            <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action>
-                            <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
-                            <wm-form-action key="reset" class="form-reset btn-secondary" iconclass="wi wi-refresh" action="reset()" display-name="Reset" show="true" type="button" update-mode="true" shortcutkey=""></wm-form-action>
-                            <wm-form-action key="delete" class="form-delete btn-secondary" iconclass="wi wi-trash" action="delete()" display-name="Delete" show="true" type="button" update-mode="false" shortcutkey=""></wm-form-action>
-                            <wm-form-action key="edit" class="form-update btn-secondary" iconclass="wi wi-pencil" action="edit()" display-name="Edit" show="true" type="button" update-mode="false" shortcutkey=""></wm-form-action>
+                            <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-default" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                            <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true" action=""></wm-form-action>
+                            <wm-form-action key="reset" class="form-reset btn-default" iconclass="wi wi-refresh" action="reset()" display-name="Reset" show="true" type="button" update-mode="true" shortcutkey=""></wm-form-action>
+                            <wm-form-action key="delete" class="form-delete btn-danger" iconclass="wi wi-trash" action="delete()" display-name="Delete" show="true" type="button" update-mode="false" shortcutkey=""></wm-form-action>
+                            <wm-form-action key="edit" class="form-update btn-info" iconclass="wi wi-pencil" action="edit()" display-name="Edit" show="true" type="button" update-mode="false" shortcutkey=""></wm-form-action>
                             <wm-form-action key="new" class="form-new btn-success" iconclass="wi wi-plus" action="new()" display-name="New" show="true" type="button" update-mode="false" shortcutkey=""></wm-form-action>
                         </wm-liveform>
                     </wm-livetable>
@@ -131,128 +118,125 @@
                     <wm-livefilter name="AllTypesTableFilter1" title="Filter All_types_table" dataset="bind:Variables.NewtestdbpostgresAllTypesTableData1.dataSet" captionalign="left" captionposition="top">
                         <wm-layoutgrid columns="2" name="layoutgrid2">
                             <wm-gridrow name="gridrow7">
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn18">
-                                    <wm-filter-field name="pkId" field="pkId" displayname="Pk Id" widget="number" is-range="false" type="integer" is-primary-key="true" generator="sequence" show="true" inputtype="number" key="pkId" placeholder="Enter value"></wm-filter-field>
-                                </wm-gridcolumn>
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn19">
-                                    <wm-filter-field name="shortCol" field="shortCol" displayname="Short Col" widget="number" is-range="false" type="short" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="shortCol" placeholder="Enter value"></wm-filter-field>
-                                </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn18">
+                              <wm-filter-field name="pkId" field="pkId" displayname="Pk Id" widget="number" is-range="false" type="integer" is-primary-key="true" generator="sequence" show="true" inputtype="number" key="pkId" placeholder="Enter value"></wm-filter-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                              <wm-filter-field name="shortCol" field="shortCol" displayname="Short Col" widget="number" is-range="false" type="short" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="shortCol" placeholder="Enter value"></wm-filter-field>
+                              </wm-gridcolumn>
                             </wm-gridrow>
                             <wm-gridrow name="gridrow8">
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn20">
-                                    <wm-filter-field name="byteCol" field="byteCol" displayname="Byte Col" widget="number" is-range="false" type="byte" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="byteCol" placeholder="Enter value"></wm-filter-field>
-                                </wm-gridcolumn>
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn21">
-                                    <wm-filter-field name="floatCol" field="floatCol" displayname="Float Col" widget="number" is-range="false" type="float" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="floatCol" placeholder="Enter value"></wm-filter-field>
-                                </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn20">
+                              <wm-filter-field name="byteCol" field="byteCol" displayname="Byte Col" widget="number" is-range="false" type="byte" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="byteCol" placeholder="Enter value"></wm-filter-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn21">
+                              <wm-filter-field name="floatCol" field="floatCol" displayname="Float Col" widget="number" is-range="false" type="float" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="floatCol" placeholder="Enter value"></wm-filter-field>
+                              </wm-gridcolumn>
                             </wm-gridrow>
                             <wm-gridrow name="gridrow9">
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn22">
-                                    <wm-filter-field name="intCol" field="intCol" displayname="Int Col" widget="number" is-range="false" type="integer" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="intCol" placeholder="Enter value"></wm-filter-field>
-                                </wm-gridcolumn>
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn23">
-                                    <wm-filter-field name="bigintCol" field="bigintCol" displayname="Bigint Col" widget="number" is-range="false" type="big_integer" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="bigintCol"
-                                        placeholder="Enter value"></wm-filter-field>
-                                </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn22">
+                              <wm-filter-field name="intCol" field="intCol" displayname="Int Col" widget="number" is-range="false" type="integer" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="intCol" placeholder="Enter value"></wm-filter-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn23">
+                              <wm-filter-field name="bigintCol" field="bigintCol" displayname="Bigint Col" widget="number" is-range="false" type="big_integer" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="bigintCol" placeholder="Enter value"></wm-filter-field>
+                              </wm-gridcolumn>
                             </wm-gridrow>
                             <wm-gridrow name="gridrow10">
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn24">
-                                    <wm-filter-field name="doubleCol" field="doubleCol" displayname="Double Col" widget="number" is-range="false" type="double" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="doubleCol" placeholder="Enter value"></wm-filter-field>
-                                </wm-gridcolumn>
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn25">
-                                    <wm-filter-field name="charCol" field="charCol" displayname="Char Col" widget="chips" is-range="false" type="character" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="charCol"></wm-filter-field>
-                                </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn24">
+                              <wm-filter-field name="doubleCol" field="doubleCol" displayname="Double Col" widget="number" is-range="false" type="double" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="doubleCol" placeholder="Enter value"></wm-filter-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn25">
+                              <wm-filter-field name="charCol" field="charCol" displayname="Char Col" widget="chips" is-range="false" type="character" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="charCol"></wm-filter-field>
+                              </wm-gridcolumn>
                             </wm-gridrow>
                             <wm-gridrow name="gridrow11">
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn26">
-                                    <wm-filter-field name="bigdecCol" field="bigdecCol" displayname="Bigdec Col" widget="number" is-range="false" type="big_decimal" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="bigdecCol"
-                                        placeholder="Enter value"></wm-filter-field>
-                                </wm-gridcolumn>
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn27">
-                                    <wm-filter-field name="textCol" field="textCol" displayname="Text Col" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="textCol" placeholder="Enter value"></wm-filter-field>
-                                </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn26">
+                              <wm-filter-field name="bigdecCol" field="bigdecCol" displayname="Bigdec Col" widget="number" is-range="false" type="big_decimal" is-primary-key="false" generator="assigned" show="true" inputtype="number" key="bigdecCol" placeholder="Enter value"></wm-filter-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn27">
+                              <wm-filter-field name="textCol" field="textCol" displayname="Text Col" widget="text" is-range="false" type="text" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="textCol" placeholder="Enter value"></wm-filter-field>
+                              </wm-gridcolumn>
                             </wm-gridrow>
                             <wm-gridrow name="gridrow12">
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn28">
-                                    <wm-filter-field name="stringCol" field="stringCol" displayname="String Col" widget="autocomplete" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="stringCol"
-                                        matchmode="start" filter-on="charCol"></wm-filter-field>
-                                </wm-gridcolumn>
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn29">
-                                    <wm-filter-field name="dateCol" field="dateCol" displayname="Date Col" widget="date" is-range="true" type="date" is-primary-key="false" generator="assigned" show="true" key="dateCol" placeholder="Select date"></wm-filter-field>
-                                </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn28">
+                              <wm-filter-field name="stringCol" field="stringCol" displayname="String Col" widget="autocomplete" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="stringCol" matchmode="startignorecase" filter-on="charCol"></wm-filter-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn29">
+                              <wm-filter-field name="dateCol" field="dateCol" displayname="Date Col" widget="date" is-range="true" type="date" is-primary-key="false" generator="assigned" show="true" key="dateCol" placeholder="Select date"></wm-filter-field>
+                              </wm-gridcolumn>
                             </wm-gridrow>
                             <wm-gridrow name="gridrow13">
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn30">
-                                    <wm-filter-field name="clobCol" field="clobCol" displayname="Clob Col" widget="text" is-range="false" type="clob" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="clobCol" placeholder="Enter value"></wm-filter-field>
-                                </wm-gridcolumn>
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn31">
-                                    <wm-filter-field name="datetimeCol" field="datetimeCol" displayname="Datetime Col" widget="datetime" is-range="true" type="datetime" is-primary-key="false" generator="assigned" show="true" key="datetimeCol" placeholder="Select date time"></wm-filter-field>
-                                </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn30">
+                              <wm-filter-field name="clobCol" field="clobCol" displayname="Clob Col" widget="text" is-range="false" type="clob" is-primary-key="false" generator="assigned" show="true" inputtype="text" key="clobCol" placeholder="Enter value"></wm-filter-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn31">
+                              <wm-filter-field name="datetimeCol" field="datetimeCol" displayname="Datetime Col" widget="datetime" is-range="true" type="datetime" is-primary-key="false" generator="assigned" show="true" key="datetimeCol" placeholder="Select date time"></wm-filter-field>
+                              </wm-gridcolumn>
                             </wm-gridrow>
                             <wm-gridrow name="gridrow14">
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn32">
-                                    <wm-filter-field name="timeCol" field="timeCol" displayname="Time Col" widget="time" is-range="true" type="time" is-primary-key="false" generator="assigned" show="true" key="timeCol" placeholder="Select time"></wm-filter-field>
-                                </wm-gridcolumn>
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn33">
-                                    <wm-filter-field name="booleanCol" field="booleanCol" displayname="Boolean Col" widget="checkbox" is-range="false" type="boolean" is-primary-key="false" generator="assigned" show="true" key="booleanCol" placeholder=""></wm-filter-field>
-                                </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn32">
+                              <wm-filter-field name="timeCol" field="timeCol" displayname="Time Col" widget="time" is-range="true" type="time" is-primary-key="false" generator="assigned" show="true" key="timeCol" placeholder="Select time"></wm-filter-field>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn33">
+                              <wm-filter-field name="booleanCol" field="booleanCol" displayname="Boolean Col" widget="checkbox" is-range="false" type="boolean" is-primary-key="false" generator="assigned" show="true" key="booleanCol" placeholder=""></wm-filter-field>
+                              </wm-gridcolumn>
                             </wm-gridrow>
                             <wm-gridrow name="gridrow15">
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn34">
-                                    <wm-filter-field name="timestampCol" field="timestampCol" displayname="Timestamp Col" widget="timestamp" is-range="true" type="timestamp" is-primary-key="false" generator="assigned" show="true" key="timestampCol" placeholder="Select date time"></wm-filter-field>
-                                </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn34">
+                              <wm-filter-field name="timestampCol" field="timestampCol" displayname="Timestamp Col" widget="timestamp" is-range="true" type="timestamp" is-primary-key="false" generator="assigned" show="true" key="timestampCol" placeholder="Select date time"></wm-filter-field>
+                              </wm-gridcolumn>
                             </wm-gridrow>
                             <wm-gridrow name="gridrow16">
-                                <wm-gridcolumn columnwidth="6" name="gridcolumn35">
-                                    <wm-filter-field name="blobCol" field="blobCol" displayname="Blob Col" widget="upload" is-range="false" type="blob" is-primary-key="false" generator="assigned" show="true" key="blobCol"></wm-filter-field>
-                                </wm-gridcolumn>
+                              <wm-gridcolumn columnwidth="6" name="gridcolumn35">
+                              <wm-filter-field name="blobCol" field="blobCol" displayname="Blob Col" widget="upload" is-range="false" type="blob" is-primary-key="false" generator="assigned" show="true" key="blobCol"></wm-filter-field>
+                              </wm-gridcolumn>
                             </wm-gridrow>
                         </wm-layoutgrid>
                         <wm-filter-action key="filter" display-name="Filter" show="true" class="btn-primary" iconclass="wi wi-filter-list" title="Filter" action="filter()" disabled="false" type="button"></wm-filter-action>
-                        <wm-filter-action key="clear" display-name="Clear" show="true" class="btn-secondary" iconclass="wi wi-cancel" title="Clear" action="clearFilter()" disabled="false" type="button"></wm-filter-action>
+                        <wm-filter-action key="clear" display-name="Clear" show="true" class="btn-default" iconclass="wi wi-cancel" title="Clear" action="clearFilter()" disabled="false" type="button"></wm-filter-action>
                     </wm-livefilter>
                     <wm-list listclass="list-group" template="true" itemsperrow="xs-1 sm-2 md-2 lg-2" class="list-card" name="List1" dataset="bind:Widgets.AllTypesTableFilter1.result" navigation="Classic">
                         <wm-listtemplate layout="media" name="listtemplate1">
                             <wm-card name="card1">
-                                <wm-card-content fontsize="0.8" fontunit="em" name="card_content1">
-                                    <wm-layoutgrid columns="2" name="layoutgrid3">
-                                        <wm-gridrow name="gridrow17">
-                                            <wm-gridcolumn colwidth="6" columnwidth="6" class="col-xs-6" name="gridcolumn36">
-                                                <wm-picture name="Picture" width="100%" picturesource="bind:Widgets.AllTypesTableFilter1.result.blobCol"></wm-picture>
-                                            </wm-gridcolumn>
-                                            <wm-gridcolumn colwidth="6" columnwidth="6" padding="unset 1.25em" class="col-xs-6" name="gridcolumn37">
-                                                <wm-label name="ID" caption="bind:'PK ID: '+Widgets.AllTypesTableFilter1.result.pkId" class="text-muted p" margin="unset unset 0px unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="Name" caption="bind:'BYTE COL: '+Widgets.AllTypesTableFilter1.result.byteCol" class="h4" margin="0px unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="JobTitle" caption="bind:'SHORT COL: '+Widgets.AllTypesTableFilter1.result.shortCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="Department" caption="bind:'INT COL: '+Widgets.AllTypesTableFilter1.result.intCol" class="p text-muted" margin="unset unset 0px unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="Location" caption="bind:'DOUBLE COL: '+Widgets.AllTypesTableFilter1.result.doubleCol" class="text-muted p" whitespace="nowrap"></wm-label>
-                                                <wm-anchor name="PhoneNumber" caption="bind:'BIGINT COL: '+Widgets.AllTypesTableFilter1.result.bigintCol" class="h5" hyperlink="tel:" margin="0px unset" whitespace="nowrap"></wm-anchor>
-                                                <wm-anchor name="EmailID" class="p text-muted" hyperlink="mailto://" caption="bind:'BIGDEC COL: '+Widgets.AllTypesTableFilter1.result.bigdecCol" whitespace="nowrap"></wm-anchor>
-                                                <wm-label name="JobTitle1" caption="bind:'CHAR COL: '+Widgets.AllTypesTableFilter1.result[$i].charCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="JobTitle2" caption="bind:'STRING COL: '+Widgets.AllTypesTableFilter1.result[$i].stringCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="JobTitle3" caption="bind:'TEXT COL: '+Widgets.AllTypesTableFilter1.result[$i].textCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="JobTitle4" caption="bind:'CLOB COL: '+Widgets.AllTypesTableFilter1.result[$i].clobCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="JobTitle5" caption="bind:'DATE COL: '+Widgets.AllTypesTableFilter1.result[$i].dateCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="JobTitle6" caption="bind:'TIME COL: '+Widgets.AllTypesTableFilter1.result[$i].timeCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="JobTitle7" caption="bind:'DATETIME COL: '+Widgets.AllTypesTableFilter1.result[$i].datetimeCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="JobTitle8" caption="bind:'TIMESTAMP COL: '+Widgets.AllTypesTableFilter1.result[$i].timestampCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
-                                                <wm-label name="JobTitle9" caption="bind:'BOOLEAN COL: '+Widgets.AllTypesTableFilter1.result[$i].booleanCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
-                                            </wm-gridcolumn>
-                                        </wm-gridrow>
-                                    </wm-layoutgrid>
-                                </wm-card-content>
+                              <wm-card-content fontsize="0.8" fontunit="em" name="card_content1">
+                              <wm-layoutgrid columns="2" name="layoutgrid3">
+                              <wm-gridrow name="gridrow17">
+                              <wm-gridcolumn colwidth="6" columnwidth="6" class="col-xs-6" name="gridcolumn36">
+                              <wm-picture name="Picture" width="100%" picturesource="bind:Widgets.AllTypesTableFilter1.result.blobCol"></wm-picture>
+                              </wm-gridcolumn>
+                              <wm-gridcolumn colwidth="6" columnwidth="6" padding="unset 1.25em" class="col-xs-6" name="gridcolumn37">
+                              <wm-label name="ID" caption="bind:'PK ID: '+Widgets.AllTypesTableFilter1.result.pkId" class="text-muted p" margin="unset unset 0px unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="Name" caption="bind:'BYTE COL: '+Widgets.AllTypesTableFilter1.result.byteCol" class="h4" margin="0px unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="JobTitle" caption="bind:'SHORT COL: '+Widgets.AllTypesTableFilter1.result.shortCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="Department" caption="bind:'INT COL: '+Widgets.AllTypesTableFilter1.result.intCol" class="p text-muted" margin="unset unset 0px unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="Location" caption="bind:'DOUBLE COL: '+Widgets.AllTypesTableFilter1.result.doubleCol" class="text-muted p" whitespace="nowrap"></wm-label>
+                              <wm-anchor name="PhoneNumber" caption="bind:'BIGINT COL: '+Widgets.AllTypesTableFilter1.result.bigintCol" class="h5" hyperlink="tel:" margin="0px unset" whitespace="nowrap"></wm-anchor>
+                              <wm-anchor name="EmailID" class="p text-muted" hyperlink="mailto://" caption="bind:'BIGDEC COL: '+Widgets.AllTypesTableFilter1.result.bigdecCol" whitespace="nowrap"></wm-anchor>
+                              <wm-label name="JobTitle1" caption="bind:'CHAR COL: '+Widgets.AllTypesTableFilter1.result[$i].charCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="JobTitle2" caption="bind:'STRING COL: '+Widgets.AllTypesTableFilter1.result[$i].stringCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="JobTitle3" caption="bind:'TEXT COL: '+Widgets.AllTypesTableFilter1.result[$i].textCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="JobTitle4" caption="bind:'CLOB COL: '+Widgets.AllTypesTableFilter1.result[$i].clobCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="JobTitle5" caption="bind:'DATE COL: '+Widgets.AllTypesTableFilter1.result[$i].dateCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="JobTitle6" caption="bind:'TIME COL: '+Widgets.AllTypesTableFilter1.result[$i].timeCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="JobTitle7" caption="bind:'DATETIME COL: '+Widgets.AllTypesTableFilter1.result[$i].datetimeCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="JobTitle8" caption="bind:'TIMESTAMP COL: '+Widgets.AllTypesTableFilter1.result[$i].timestampCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                              <wm-label name="JobTitle9" caption="bind:'BOOLEAN COL: '+Widgets.AllTypesTableFilter1.result[$i].booleanCol" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                              </wm-gridcolumn>
+                              </wm-gridrow>
+                              </wm-layoutgrid>
+                              </wm-card-content>
                             </wm-card>
                         </wm-listtemplate>
                     </wm-list>
                 </wm-tabpane>
                 <wm-tabpane name="tabpane3">
-                    <wm-table editmode="inline" name="DatetimeTabaleReverseTable1" title="Datetime_tabale_reverse List" dataset="bind:Variables.NewtestdbpostgresDatetimeTabaleReverseData.dataSet" navigation="Basic">
+                    <wm-table editmode="inline" name="DatetimeTabaleReverseTable1" title="Datetime_tabale_reverse List" dataset="bind:Variables.NewtestdbpostgresDatetimeTabaleReverseData.dataSet" navigation="Basic" gridclass="table-bordered table-striped table-hover">
                         <wm-table-column binding="id" caption="Id" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" primary-key="true" required="true"></wm-table-column>
                         <wm-table-column binding="datetimeTimestamp" caption="Datetime Timestamp" generator="assigned" pcdisplay="true" mobiledisplay="true" type="timestamp"></wm-table-column>
                         <wm-table-column binding="timestampDatetime" caption="Timestamp Datetime" generator="assigned" pcdisplay="true" mobiledisplay="true" type="datetime"></wm-table-column>
                         <wm-table-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-table-action>
-                        <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-table-row-action>
-                        <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-table-row-action>
+                        <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow($event)"></wm-table-row-action>
+                        <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow($event)"></wm-table-row-action>
                     </wm-table>
                 </wm-tabpane>
             </wm-tabs>

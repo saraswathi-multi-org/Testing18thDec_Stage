@@ -8,14 +8,14 @@ package com.testing18thdec_stage.newtestdb;
 import java.io.Serializable;
 import java.util.Objects;
 
-import org.hibernate.annotations.Type;
-import org.joda.time.LocalDateTime;
+ 
+import java.time.LocalDateTime;
 
 public class DatabasedefinedTableId implements Serializable {
 
     private Integer a;
     private Integer b;
-    @Type(type = "DateTime")
+     
     private LocalDateTime expires;
     private byte[] x;
     private String column5;

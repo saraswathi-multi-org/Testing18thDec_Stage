@@ -1,47 +1,42 @@
-<wm-page data-ng-controller="LV_ChartsPageController" pagetitle="Lv Charts" name="page1">
-    <wm-header content="header" name="header1"></wm-header>
-    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
-    <wm-content name="content1">
-        <wm-page-content columnwidth="12" name="page_content1">
-            <wm-layoutgrid name="layoutgrid1" columns="3">
-                <wm-gridrow name="gridrow3">
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn5">
-                        <wm-chart type="Line" title="Line Chart" height="250px" iconclass="wi wi-line-chart" name="chart1" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q1" aggregation="average" xaxisdatakey="deptCode" aggregationcolumn="q1"
-                            groupby="deptCode"></wm-chart>
-                    </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn6">
-                        <wm-chart type="Column" title="Column Chart" height="250px" iconclass="wi wi-bar-chart" name="chart2" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="budget" aggregation="maximum" xaxisdatakey="deptCode" aggregationcolumn="budget"
-                            groupby="deptCode"></wm-chart>
-                    </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn7">
-                        <wm-chart type="Area" title="Area Chart" height="250px" iconclass="fa fa-area-chart" name="chart3" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q1" aggregation="maximum" xaxisdatakey="deptCode" aggregationcolumn="q1"
-                            groupby="deptCode"></wm-chart>
-                    </wm-gridcolumn>
-                </wm-gridrow>
-                <wm-gridrow name="gridrow4">
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn8">
-                        <wm-chart type="Pie" title="Pie Chart" height="250px" iconclass="wi wi-pie-chart" name="chart4" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q1" aggregation="maximum" xaxisdatakey="name" aggregationcolumn="q1" groupby="name"></wm-chart>
-                    </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn9">
-                        <wm-chart type="Bar" title="Bar Chart" height="250px" iconclass="wi wi-bar-chart" name="chart5" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q2" aggregation="minimum" xaxisdatakey="deptCode" aggregationcolumn="q2" groupby="deptCode"></wm-chart>
-                    </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn10">
-                        <wm-chart type="Cumulative Line" title="Cumulative Line Chart" height="250px" iconclass="wi wi-line-chart" name="chart6" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q2" aggregation="sum" xaxisdatakey="deptCode" aggregationcolumn="q2"
-                            groupby="deptCode"></wm-chart>
-                    </wm-gridcolumn>
-                </wm-gridrow>
-                <wm-gridrow name="gridrow5">
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn11">
-                        <wm-chart type="Donut" title="Donut Chart" height="250px" iconclass="wi wi-donut-large" name="chart7" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q1" aggregation="average" xaxisdatakey="deptCode" aggregationcolumn="q1"
-                            groupby="deptCode"></wm-chart>
-                    </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn12">
-                        <wm-chart type="Bubble" title="Bubble Chart" height="250px" iconclass="wi wi-bubble-chart" name="chart8" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q2" xaxisdatakey="q1" bubblesize="deptId" groupby="q1" tooltips="false"></wm-chart>
-                    </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn13"></wm-gridcolumn>
-                </wm-gridrow>
-            </wm-layoutgrid>
-        </wm-page-content>
-    </wm-content>
-    <wm-footer content="footer" name="footer1"></wm-footer>
+<wm-page pagetitle="Lv Charts" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-layoutgrid name="layoutgrid1" columns="3"> 
+                <wm-gridrow name="gridrow3"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn5"> 
+                        <wm-chart type="Line" title="Line Chart" height="250px" iconclass="wi wi-line-chart" name="chart1" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q1" aggregation="average" xaxisdatakey="deptCode" aggregationcolumn="q1" groupby="deptCode"></wm-chart> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn6"> 
+                        <wm-chart type="Column" title="Column Chart" height="250px" iconclass="wi wi-bar-chart" name="chart2" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="budget" aggregation="maximum" xaxisdatakey="deptCode" aggregationcolumn="budget" groupby="deptCode"></wm-chart> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn7"> 
+                        <wm-chart type="Area" title="Area Chart" height="250px" iconclass="fa fa-area-chart" name="chart3" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q1" aggregation="maximum" xaxisdatakey="deptCode" aggregationcolumn="q1" groupby="deptCode"></wm-chart> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow4"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn8"> 
+                        <wm-chart type="Pie" title="Pie Chart" height="250px" iconclass="wi wi-pie-chart" name="chart4" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q1" aggregation="maximum" xaxisdatakey="name" aggregationcolumn="q1" groupby="name"></wm-chart> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn9"> 
+                        <wm-chart type="Bar" title="Bar Chart" height="250px" iconclass="wi wi-bar-chart" name="chart5" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q2" aggregation="minimum" xaxisdatakey="deptCode" aggregationcolumn="q2" groupby="deptCode"></wm-chart> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn10"> 
+                        <wm-chart type="Cumulative Line" title="Cumulative Line Chart" height="250px" iconclass="wi wi-line-chart" name="chart6" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q2" aggregation="sum" xaxisdatakey="deptCode" aggregationcolumn="q2" groupby="deptCode"></wm-chart> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow5"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn11"> 
+                        <wm-chart type="Donut" title="Donut Chart" height="250px" iconclass="wi wi-donut-large" name="chart7" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q1" aggregation="average" xaxisdatakey="deptCode" aggregationcolumn="q1" groupby="deptCode"></wm-chart> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn12"> 
+                        <wm-chart type="Bubble" title="Bubble Chart" height="250px" iconclass="wi wi-bubble-chart" name="chart8" dataset="bind:Variables.LV_DeptData.dataSet" yaxisdatakey="q2" xaxisdatakey="q1" bubblesize="deptId" groupby="q1" tooltips="false"></wm-chart> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn13"></wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
 </wm-page>

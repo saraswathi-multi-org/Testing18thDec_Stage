@@ -1,0 +1,6 @@
+{
+  "id" : "WMSTUDIO",
+  "type" : "DataService",
+  "packageNames" : [ "com.testing18thdec_stage.wmstudio" ],
+  "title" : "WMSTUDIO"
+}
